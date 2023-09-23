@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
 
+    private GameData gameDataReference;
+
+    private void Awake()
+    {
+        gameDataReference = GameData.Instance;
+    }
+
+
     // Go to Main Menu
     public void GoToMainMenu()
     {
@@ -29,16 +37,17 @@ public class SceneLoader : MonoBehaviour
     }
 
     // Go to Character Selection Screen
-    void GoToCharacterSelectionScreen()
+    public void GoToCharacterSelectionScreen()
     {
 
         SceneManager.LoadScene("CharacterSelectionScreen");
     }
 
     // Go to Castle Stage
-    void GoToCastleStage()
+    public void GoToCastleStage()
     {
         SceneManager.LoadScene("CastleStage");
+        gameDataReference.SetStage("Casle");
     }
 
 
